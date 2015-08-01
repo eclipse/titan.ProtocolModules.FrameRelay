@@ -1,0 +1,44 @@
+/******************************************************************************
+* Copyright (c) 2005, 2015  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+* Gabor Szalai
+******************************************************************************/
+//  File:     FrameRelay_Types.ttcn
+//  Rev:      R2A
+//  Prodnr:   CNL 113 790
+///////////////////////////////////////////////////////////////////////////////
+
+module FrameRelay_Types{
+
+  import from General_Types all;
+
+  external function f_PDU_Frame_Relay_Enc(in PDU_Frame_Relay pdu) return octetstring
+  external function f_PDU_Frame_Relay_Dec(in octetstring stream) return PDU_Frame_Relay
+
+
+  type union Information_data {
+    octetstring  data
+  }
+  
+
+  type record PDU_Frame_Relay {
+    BIT10   dlci,
+    BIT1    c_r,
+    BIT1    ea1,
+    BIT1    fecn,
+    BIT1    becn,
+    BIT1    de,
+    BIT1    ea2,
+    Information_data  information
+  }
+
+
+
+
+}
+

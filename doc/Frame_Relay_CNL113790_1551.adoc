@@ -1,0 +1,103 @@
+---
+Author: Gábor Szalai
+Version: 1551-CNL 113 790, Rev. A
+Date: 2013-09-18
+
+---
+= Frame Relay  Protocol Modules for TTCN-3 Toolset with Titan, Description
+:author: Gábor Szalai
+:revnumber: 1551-CNL 113 790, Rev. A
+:revdate: 2013-09-18
+:toc:
+
+= Functionality
+
+The Frame Relay protocol module implements the message structures of the related protocol <<_4, [4]>> in a formalized way, using the standard specification language TTCN-3. This allows defining of test data (templates) in the TTCN-3 language and correctly encoding/decoding messages when executing test suites using the Titan TTCN-3 test environment.
+
+The Frame Relay protocol module uses Titan’s RAW encoding attributes <<_3, [3]>> and hence is usable with the Titan test toolset only.
+
+== Implemented Protocols
+
+This set of protocol modules implements protocol messages and constants of the Frame Relay protocol as described in <<_4, [4]>>.
+
+=== Modified and Non-Implemented Protocol Elements
+
+Only default address field format (See A.2 <<_4, [4]>>) is implemented.
+
+=== Ericsson-Specific Changes
+
+None.
+
+== Backward Incompatibilities
+
+None.
+
+== System Requirements
+
+Protocol modules are a set of TTCN-3 source code files that can be used as part of TTCN-3 test suites only. Hence, protocol modules alone do not put specific requirements on the system used. However, in order to compile and execute a TTCN-3 test suite using the set of protocol modules the following system requirements must be satisfied:
+
+Titan TTCN-3 Test Executor version CRL 113 200 R7A (1.7.pl0) or higher installed. For Installation Guide see <<_2, [2]>>.
+
+NOTE: This version of the test port is not compatible with Titan releases earlier than CRL 113 200 R7A.
+
+= Usage
+
+== Installation
+
+The set of protocol modules can be used in developing TTCN-3 test suites using any text editor; however, to make the work more efficient a TTCN3enabled text editor is recommended (for example `nedit`, `xemacs`). Since the Frame Relay protocol is used as a part of a TTCN-3 test suite, this requires TTCN-3 Test Executor be installed before the module can be compiled and executed together with other parts of the test suite. For more details on the installation of TTCN-3 Test Executor see the relevant section of <<_2, [2]>>.
+
+== Configuration
+
+None.
+
+== Examples
+
+None.
+
+= Interface Description
+
+== Top Level PDU
+
+The top level PDU is the TTCN-3 records PDU_Frame_Relay.
+
+[[encoding-decoding-and-other-related-functions]]
+== Encoding/Decoding and Other Related Functions
+
+This product also contains encoding/decoding functions, which assure correct encoding of messages when sent from Titan and correct decoding of messages when received by Titan.
+
+=== Implemented encoding and decoding functions
+
+[cols=3*,options=header]
+|===
+
+|Name |Type of formal parameters |Type of return value
+|`f_PDU_Frame_Relay_Enc` |in PDU_Frame Relay |octetstring
+|`f_PDU_Frame_Relay_Enc` |in octetstring |PDU_Frame_Relay
+|===
+
+= Terminology
+
+None.
+
+= Abbreviations
+
+PDU:: Protocol Data Unit
+
+TTCN-3:: Testing and Test Control Notation version 3
+
+= References
+
+[[_1]]
+[1] ETSI ES 201 873-1 v4.4.1 (2012-04) +
+The Testing and Test Control Notation version 3. Part 1: Core Language
+
+[[_2]]
+[2] User Guide for TITAN TTCN-3 Test Executor
+
+[[_3]]
+[3] Programmer’s Technical Reference for Titan TTCN–3 Test Executor
+
+[[_4]]
+[4] ITU-t Q.922 +
+ISDN DATA LINK LAYER SPECIFICATION FOR FRAME MODE BEARER SERVICES
+
